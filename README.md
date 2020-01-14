@@ -45,14 +45,10 @@ We can install the master branch using the following commands:
 
     git clone https://github.com/vtsitlak/notes-app.git
     
-This repository is made of several separate npm modules, that are installable separately. For example, to run the au-input module, we can do the following:
-    
+Install the modules as usual using npm:
+
     cd notes-app
     npm install
-
-Its also possible to install the modules as usual using npm:
-
-    npm install 
 
 This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.
 
