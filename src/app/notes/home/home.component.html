@@ -1,0 +1,32 @@
+<div class="notes-panel">
+
+  <div class="header">
+
+    <h2 class="title">All Notes</h2>
+
+    <button mat-mini-fab>
+      <mat-icon class="add-note-btn" (click)="onAddCourse()" matTooltip="Create new Note">add</mat-icon>
+    </button>
+
+  </div>
+
+  <mat-tab-group>
+
+    <mat-tab label="All Notes">
+
+      <notes-table-list (noteChanged)="reload()" [notes]="notes$ | async">
+
+      </notes-table-list>
+
+    </mat-tab>
+
+    <mat-tab label="Important">
+
+      <notes-table-list (noteChanged)="reload()" [notes]="importantNotes$ | async"></notes-table-list>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+
+</div>

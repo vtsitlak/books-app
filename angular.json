@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "books-app": {
+    "notes-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/books-app",
+            "outputPath": "dist/notes-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "books-app:build"
+            "browserTarget": "notes-app:build",
+            "proxyConfig": "proxy.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "books-app:build:production"
+              "browserTarget": "notes-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "books-app:build"
+            "browserTarget": "notes-app:build"
           }
         },
         "test": {
@@ -115,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "books-app:serve"
+            "devServerTarget": "notes-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "books-app:serve:production"
+              "devServerTarget": "notes-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "books-app"
+  "defaultProject": "notes-app"
 }
