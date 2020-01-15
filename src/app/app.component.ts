@@ -5,16 +5,6 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 import { AppState } from './reducers';
 import { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
 import { login, logout } from './auth/auth.actions';
-import { EntityDispatcherDefaultOptions } from '@ngrx/data';
-
-/** Store stub */
-class TestStore {
-    // only interested in calls to store.dispatch()
-    dispatch() { }
-    select() { }
-}
-
-const defaultDispatcherOptions = new EntityDispatcherDefaultOptions();
 
 @Component({
     selector: 'app-root',
@@ -29,7 +19,8 @@ export class AppComponent implements OnInit {
 
     isLoggedOut$: Observable<boolean>;
 
-    constructor(private router: Router,
+    constructor(
+        private router: Router,
         private store: Store<AppState>) {
 
     }
