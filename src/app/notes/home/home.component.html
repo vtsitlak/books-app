@@ -6,7 +6,7 @@
 
     <button mat-mini-fab>
       <mat-icon class="add-note-btn" (click)="onAddCourse()" matTooltip="Create new Note">add</mat-icon>
-    </button>
+    </button>    
 
   </div>
 
@@ -22,7 +22,7 @@
 
     <mat-tab label="Important">
 
-      <notes-table-list (noteChanged)="reload()" [notes]="importantNotes$ | async"></notes-table-list>
+      <notes-table-list (noteChanged)="reload()" [notes]="importantNotes$ | async"></notes-table-list>      
 
     </mat-tab>
 

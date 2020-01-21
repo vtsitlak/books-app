@@ -10,32 +10,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-
-import { RouterModule, Routes } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
+import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
-
 import { EffectsModule } from '@ngrx/effects';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
 import { metaReducers, reducers } from './reducers';
-import { AuthGuard } from './auth/auth.guard';
 import { EntityDataModule } from '@ngrx/data';
-
-
-const routes: Routes = [
-    {
-        path: 'notes',
-        loadChildren: () => import('./notes/notes.module').then(m => m.NotesModule),
-        canActivate: [AuthGuard]
-    },
-    {
-        path: '**',
-        redirectTo: '/'
-    }
-];
 
 
 @NgModule({
@@ -43,13 +27,14 @@ const routes: Routes = [
         AppComponent
     ],
     imports: [
+        AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(routes),
         HttpClientModule,
         MatMenuModule,
         MatIconModule,
         MatSidenavModule,
+        MatButtonModule,
         MatProgressSpinnerModule,
         MatListModule,
         MatToolbarModule,

@@ -13,6 +13,8 @@ import { login, logout } from './auth/auth.actions';
 })
 export class AppComponent implements OnInit {
 
+    title = 'Notes App';
+
     loading = true;
 
     isLoggedIn$: Observable<boolean>;

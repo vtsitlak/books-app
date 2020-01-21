@@ -1,39 +1,35 @@
 <mat-sidenav-container fullscreen>
 
-  <mat-sidenav #start>
-      <mat-nav-list (click)="start.close()">
+    <mat-sidenav #start>
+        <mat-nav-list (click)="start.close()">
 
-          <a mat-list-item routerLink="/notes">
-              <mat-icon>note</mat-icon>
-              <span>Notes</span>
-          </a>
+            <a mat-list-item routerLink="/login" *ngIf="isLoggedOut$ | async">
+                <mat-icon>account_circle</mat-icon>
+                <span>Login</span>
+            </a>
 
-          <a mat-list-item routerLink="/login" *ngIf="isLoggedOut$ | async">
-              <mat-icon>account_circle</mat-icon>
-              <span>Login</span>
-          </a>
+            <a mat-list-item (click)="logout()" *ngIf="isLoggedIn$ | async">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </a>
 
-          <a mat-list-item  (click)="logout()" *ngIf="isLoggedIn$ | async">
-              <mat-icon>exit_to_app</mat-icon>
-              <span>Logout</span>
-          </a>
+        </mat-nav-list>
 
-      </mat-nav-list>
+    </mat-sidenav>
 
-  </mat-sidenav>
+    <mat-toolbar color="primary">
+        <button class="color-white mat-primary" mat-icon-button (click)="start.open('mouse')" color="primary">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="color-white"> {{ title }} </span>
+    </mat-toolbar>
 
-  <mat-toolbar color="primary">
-      <button class="menu-button mat-primary" mat-icon-button (click)="start.open('mouse')" color="primary">
-          <mat-icon>menu</mat-icon>
-      </button>
-  </mat-toolbar>
+    <div class="spinner-container" *ngIf="loading">
 
-<div class="spinner-container" *ngIf="loading">
+        <mat-spinner></mat-spinner>
 
-  <mat-spinner></mat-spinner>
+    </div>
 
-</div>
-
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 
 </mat-sidenav-container>
